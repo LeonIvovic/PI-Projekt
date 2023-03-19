@@ -5,8 +5,10 @@ using UnityEngine;
 public class GroundSpawner : MonoBehaviour
 {
     public GameObject Ground1,Ground2,Ground3;
-    public GameObject Player;
+   
     private Rigidbody2D rigidBody;
+
+    //varijabla koja govori dali GroundSpawner objekt dira ground
     bool hasGround=true;
     
     [SerializeField]
@@ -16,21 +18,13 @@ public class GroundSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-
          StartCoroutine(MoveRightForDuration());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-     
-
-    }
-
+    //korutina koja pomocu varijabli speed i duration pomiče objekt GroundSpawner i poziva funckiju SpawnGround
       private IEnumerator MoveRightForDuration() {
         float timeElapsed = 0f;
-
+      
         while (timeElapsed < duration) {
             transform.Translate(speed * Time.deltaTime, 0, 0, Space.Self);
             timeElapsed += Time.deltaTime;
@@ -42,7 +36,7 @@ public class GroundSpawner : MonoBehaviour
         }
     }
   
-
+    //funkcija koja random poziva neki od 3 definirana objekta za ground i postavlja ih na random generirana mjesta u sceni
     public void SpawnGround(){
         int randomNum = Random.Range(1,4);
         int x = Random.Range(3,7);
@@ -60,12 +54,13 @@ public class GroundSpawner : MonoBehaviour
         }
     }
 
+    //funkcija koja provjerava dali se objekt sudario sa objektnom
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Ground")){
             hasGround=true;
         }
     }
-
+    //funkcija koja provjerava dali se objekt maknuo sa objekta na kojemu je bio
     private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Ground")){
             hasGround=false;
