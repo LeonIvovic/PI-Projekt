@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
             //Ground Check
             if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer))
             {
-                Debug.Log("GC");
                 lastOnGroundTime = Data.coyoteTime;
             }
         }
