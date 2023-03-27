@@ -51,7 +51,7 @@ public class PlayerMovementData : ScriptableObject
 	private void OnValidate()
 	{
 		//Calculate gravity strength using the formula (gravity = 2 * jumpHeight / timeToJumpApex^2) 
-		gravityStrength = -(2 * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);
+		gravityStrength = -(2.5f * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);
 
 		//Calculate the rigidbody's gravity scale (ie: gravity strength relative to unity's gravity value, see project settings/Physics2D)
 		gravityScale = gravityStrength / Physics2D.gravity.y;
