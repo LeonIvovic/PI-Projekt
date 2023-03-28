@@ -8,11 +8,17 @@ public class GroundSpawner : MonoBehaviour
 
     //varijabla koja govori dali GroundSpawner objekt dira ground
     bool hasGround = true;
+    bool endRequired = false;
 
     [SerializeField]
-    float speed = 10f; // The speed of the movement
+    float speed = 25f; // The speed of the movement
     [SerializeField]
-    float duration = 30f;
+    float duration = 40f;
+
+    float minY = 0.5f;
+    float maxY = 2.2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +29,13 @@ public class GroundSpawner : MonoBehaviour
     private IEnumerator MoveRightForDuration()
     {
         float timeElapsed = 0f;
+        
 
         while (timeElapsed < duration)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0, Space.Self);
             timeElapsed += Time.deltaTime;
-            if (!hasGround)
+            if (!hasGround && !endRequired)
             {
                 SpawnGround();
                 hasGround = true;
@@ -40,22 +47,34 @@ public class GroundSpawner : MonoBehaviour
     //funkcija koja random poziva neki od 3 definirana objekta za ground i postavlja ih na random generirana mjesta u sceni
     public void SpawnGround()
     {
+        
         int randomNum = Random.Range(1, 4);
-        int x = Random.Range(3, 7);
-        float y = Random.Range(-4, 2);
+        int x = Random.Range(3, 5);
+        float y = Random.Range(minY, maxY);
 
+        Debug.Log(minY);
         if (randomNum == 1)
-        {
+        {   
+            minY=minY+1f;
+            maxY=maxY+1f;
             Instantiate(Ground1, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
+          
         }
         if (randomNum == 2)
         {
+            minY=minY+1f;
+            maxY=maxY+1f;
             Instantiate(Ground2, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
+            
         }
         if (randomNum == 3)
         {
+            minY=minY+1f;
+            maxY=maxY+1f;
             Instantiate(Ground3, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
+            
         }
+       
     }
 
     //funkcija koja provjerava dali se objekt sudario sa objektnom
@@ -64,6 +83,10 @@ public class GroundSpawner : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             hasGround = true;
+        }
+        if(collision.gameObject.CompareTag("PlatformDetecter")){
+            endRequired = true;
+            Destroy(gameObject);
         }
     }
     //funkcija koja provjerava dali se objekt maknuo sa objekta na kojemu je bio
