@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (CanJump() && lastPressedJumpTime > 0)
         {
             isJumping = true;
-            isJumpCut = false;
+            isJumpCut = true;
             isJumpFalling = false;
             Jump();
         }
@@ -163,7 +163,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJumpUpInput()
     {
-        if (CanJumpCut()) isJumpCut = true;
+        if (CanJumpCut()) 
+        {
+        rb.AddForce(Vector2.down * rb.velocity.y * (1 - 0.5f),ForceMode2D.Impulse);
+        isJumpCut = true;
+        }
     }
 
     public void SetGravityScale(float scale)
