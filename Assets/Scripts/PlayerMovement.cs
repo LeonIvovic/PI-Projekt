@@ -163,7 +163,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJumpUpInput()
     {
-        if (CanJumpCut()) {
+        if (CanJumpCut()) 
+        {
         rb.AddForce(Vector2.down * rb.velocity.y * (1 - 0.5f),ForceMode2D.Impulse);
         isJumpCut = true;
         }
