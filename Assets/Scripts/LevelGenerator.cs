@@ -18,8 +18,8 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Generator options")]
     public float padding; // Padding between every element
-    public float minHeighVariation; // Min height difference between 2 level elements
-    public float maxHeighVariation; // Max height difference between 2 level elements
+    public float minHeightVariation; // Min height difference between 2 level elements
+    public float maxHeightVariation; // Max height difference between 2 level elements
     private float maxLevelLength = 0f; // Calculated from bottomLeft and topRight positions
 
     [Header("Infinite generation")]
@@ -148,7 +148,7 @@ public class LevelGenerator : MonoBehaviour
         {
             // Gets a random float in range minHeighVariation - maxHeighVariation
             // Multiplise the result with 1 or - 1 randomly so that the platform can either be placed above or below previous one
-            float randomHeight = Random.Range(minHeighVariation, maxHeighVariation) * (Random.Range(0, 2) * 2 - 1);
+            float randomHeight = Random.Range(minHeightVariation, maxHeightVariation) * (Random.Range(0, 2) * 2 - 1);
             // Clamps the height to bottomLeft and topRight limits
             float height = Mathf.Clamp(previousElementHeight + randomHeight, bottomLeft.position.y, topRight.position.y);
             previousElementHeight = height;
