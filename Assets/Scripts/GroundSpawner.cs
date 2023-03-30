@@ -15,8 +15,8 @@ public class GroundSpawner : MonoBehaviour
     [SerializeField]
     float duration = 40f;
 
-    float minY = 0.5f;
-    float maxY = 2.2f;
+    float minY = -1.5f;
+    float maxY = 1.5f;
 
 
     // Start is called before the first frame update
@@ -47,32 +47,25 @@ public class GroundSpawner : MonoBehaviour
     //funkcija koja random poziva neki od 3 definirana objekta za ground i postavlja ih na random generirana mjesta u sceni
     public void SpawnGround()
     {
-        
+        //random odabir koji ground ce se stvorit
         int randomNum = Random.Range(1, 4);
+        //random odabir udaljenosti izmedu dva grounda
         int x = Random.Range(3, 5);
-        float y = Random.Range(minY, maxY);
+        //random odabir udaljensoti visina dva grounda
+        float y = Random.Range(minY,maxY);
 
-        Debug.Log(minY);
+        
         if (randomNum == 1)
         {   
-            minY=minY+1f;
-            maxY=maxY+1f;
             Instantiate(Ground1, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
-          
         }
         if (randomNum == 2)
         {
-            minY=minY+1f;
-            maxY=maxY+1f;
             Instantiate(Ground2, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
-            
         }
         if (randomNum == 3)
         {
-            minY=minY+1f;
-            maxY=maxY+1f;
             Instantiate(Ground3, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
-            
         }
        
     }
