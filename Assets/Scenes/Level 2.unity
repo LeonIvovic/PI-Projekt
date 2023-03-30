@@ -308,9 +308,10 @@ MonoBehaviour:
   bottomLeft: {fileID: 629376814}
   topRight: {fileID: 1972012944}
   padding: 2
-  minHeighVariation: 2
-  maxHeighVariation: 3
+  minHeightVariation: 2
+  maxHeightVariation: 3
   infiniteGeneration: 0
+  generationDistance: 0
   levelElements:
   - levelElement: {fileID: 310077765023855512, guid: f811628feba06904c92c2b2c36e5646e, type: 3}
     maxTimesGenerated: 10000
