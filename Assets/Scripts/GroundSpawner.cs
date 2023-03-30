@@ -16,7 +16,7 @@ public class GroundSpawner : MonoBehaviour
     float duration = 40f;
 
     float minY = -1.5f;
-    float maxY = 1.5f;
+    float maxY = 1.2f;
 
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class GroundSpawner : MonoBehaviour
         //random odabir koji ground ce se stvorit
         int randomNum = Random.Range(1, 4);
         //random odabir udaljenosti izmedu dva grounda
-        int x = Random.Range(3, 5);
+        int x = Random.Range(4, 6);
         //random odabir udaljensoti visina dva grounda
         float y = Random.Range(minY,maxY);
 
