@@ -310,16 +310,21 @@ MonoBehaviour:
   padding: 2
   minHeightVariation: 2
   maxHeightVariation: 3
+<<<<<<< Updated upstream
   infiniteGeneration: 0
   generationDistance: 0
+=======
+  infiniteGeneration: 1
+  generationDistance: 20
+>>>>>>> Stashed changes
   levelElements:
   - levelElement: {fileID: 310077765023855512, guid: f811628feba06904c92c2b2c36e5646e, type: 3}
-    maxTimesGenerated: 10000
-    weight: 2
+    maxTimesGenerated: 1000
+    weight: 1
     generateOnlyFromNextElements: 0
     nextElements: 
   - levelElement: {fileID: 310077765023855512, guid: 2084e542f6d481d4b946bb143bed8dc3, type: 3}
-    maxTimesGenerated: 10000
+    maxTimesGenerated: 1000
     weight: 1
     generateOnlyFromNextElements: 0
     nextElements: 
@@ -829,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972012943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 10, z: 0}
+  m_LocalPosition: {x: 100, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
