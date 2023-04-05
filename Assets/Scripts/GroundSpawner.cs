@@ -29,7 +29,6 @@ public class GroundSpawner : MonoBehaviour
     private IEnumerator MoveRightForDuration()
     {
         float timeElapsed = 0f;
-        
 
         while (timeElapsed < duration)
         {
@@ -52,11 +51,10 @@ public class GroundSpawner : MonoBehaviour
         //random odabir udaljenosti izmedu dva grounda
         int x = Random.Range(4, 6);
         //random odabir udaljensoti visina dva grounda
-        float y = Random.Range(minY,maxY);
+        float y = Random.Range(minY, maxY);
 
-        
         if (randomNum == 1)
-        {   
+        {
             Instantiate(Ground1, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
         }
         if (randomNum == 2)
@@ -67,7 +65,6 @@ public class GroundSpawner : MonoBehaviour
         {
             Instantiate(Ground3, new Vector3(transform.position.x + x, y, 0), Quaternion.identity);
         }
-       
     }
 
     //funkcija koja provjerava dali se objekt sudario sa objektnom
@@ -77,7 +74,8 @@ public class GroundSpawner : MonoBehaviour
         {
             hasGround = true;
         }
-        if(collision.gameObject.CompareTag("PlatformDetecter")){
+        if (collision.gameObject.CompareTag("PlatformDetecter"))
+        {
             endRequired = true;
             Destroy(gameObject);
         }
