@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - PlatformDetecter
   - GroundSpawner
+  - PausedScreen
   layers:
   - Default
   - TransparentFX
