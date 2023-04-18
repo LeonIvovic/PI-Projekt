@@ -9,10 +9,8 @@ public class LevelGenerator : MonoBehaviour
 {
     [Header("Generator limits")]
     // These 2 points define the rectange in which the level will be generated
-    [SerializeField]
-    private Transform bottomLeft;
-    [SerializeField]
-    private Transform topRight;
+    [SerializeField] private Transform bottomLeft;
+    [SerializeField] private Transform topRight;
     private Transform player;
     [Space(10)]
 
@@ -25,8 +23,7 @@ public class LevelGenerator : MonoBehaviour
     [Header("Infinite generation")]
     [Tooltip("If enabled player position should be used as topRight")]
     public bool infiniteGeneration; // Not yet implemented, infinite level generations without top right limit
-    [SerializeField]
-    private float generationDistance;
+    [SerializeField] private float generationDistance;
 
     [Space(10)]
     public List<GeneratorElement> levelElements;
@@ -35,6 +32,7 @@ public class LevelGenerator : MonoBehaviour
     private GeneratorElement previousElement = null;
     private float currentLevelLength = 0;
     private float previousElementHeight;
+    [SerializeField] private GameObject endPlatform;
 
     // Start is called before the first frame update
     void Start()
@@ -49,14 +47,14 @@ public class LevelGenerator : MonoBehaviour
         else if (!infiniteGeneration)
         {
             // Start generation in the middle of corner limits
-            previousElementHeight = topRight.position.y + bottomLeft.position.y;
+            previousElementHeight = (topRight.position.y + bottomLeft.position.y) / 2;
             maxLevelLength = Mathf.Abs(topRight.position.x - bottomLeft.position.x);
             GenerateLevel();
         }
         else
         {
             // Start generation in the middle of corner limits
-            previousElementHeight = topRight.position.y + bottomLeft.position.y;
+            previousElementHeight = (topRight.position.y + bottomLeft.position.y) / 2;
             maxLevelLength = Mathf.Infinity;
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
@@ -136,6 +134,15 @@ public class LevelGenerator : MonoBehaviour
         {
             GenerateNextElement();
         }
+
+        // Last platform generation
+        Instantiate
+        (
+            endPlatform,
+            new Vector2(bottomLeft.position.x + maxLevelLength + padding + endPlatform.transform.localScale.x / 2, previousElementHeight - 5),
+            Quaternion.identity,
+            this.transform
+        );
     }
 
     void GenerateNextElement()
