@@ -17,9 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private float lastOnGroundTime;
     private float lastPressedJumpTime;
     private Vector2 moveInput;
+
+ 
     
-    public bool isOnPlatform;
-    public Rigidbody2D platformRB;
+    
 
     [Header("Ground check")]
     [SerializeField] private Transform groundCheck;
