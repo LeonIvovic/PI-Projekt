@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastOnGroundTime;
     private float lastPressedJumpTime;
     private Vector2 moveInput;
+    
+    public bool isOnPlatform;
+    public Rigidbody2D platformRB;
 
     [Header("Ground check")]
     [SerializeField] private Transform groundCheck;
@@ -123,7 +126,8 @@ public class PlayerMovement : MonoBehaviour
         targetSpeed = Mathf.Lerp(rb.velocity.x, targetSpeed, 1);
 
         float accelRate;
-
+        
+        
         //Gets an acceleration value based on if we are accelerating (includes turning) 
         //or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
         if (lastOnGroundTime > 0)
