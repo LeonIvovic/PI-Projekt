@@ -68,9 +68,6 @@ public class EnemyPatrol : MonoBehaviour
 
         if (idleTimer > idleDuration)
         {
-            
-
-
             movingLeft = !movingLeft;
         }
       
@@ -81,11 +78,11 @@ public class EnemyPatrol : MonoBehaviour
     {
         idleTimer = 0;
         anim.SetBool("movement", true);
-        Debug.Log("prije " + enemy.localScale.x);
+        //Debug.Log("prije " + enemy.localScale.x);
         //make enemy face right direction
         enemy.localScale = new Vector3(Mathf.Abs(enemy.localScale.x) * _direction, initScale.y, initScale.z);
 
-        Debug.Log("poslije " + enemy.localScale.x);
+        //Debug.Log("poslije " + enemy.localScale.x);
         //move enemy
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction*speed
             , enemy.position.y, enemy.position.z); 

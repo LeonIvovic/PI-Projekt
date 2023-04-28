@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     private Transform t;
     [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,44 @@ public class PlayerController : MonoBehaviour
                 gameManager.PlayerDeath();
             }
         }
+    }
+
+    public void HealDamage(int heal)
+    {
+        // Ignore negative heal, we don't want accidental damage
+        if (heal > 0)
+        {
+            health = Mathf.Min(health + heal, maxHealth);
+
+            if (health <= 0)
+            {
+                gameManager.PlayerDeath();
+            }
+        }
+    }
+
+    public void AddMaxHealth(int hp)
+    {
+        // Ignore negative hp, we don't want accidental damage
+        if (hp > 0)
+        {
+            health += hp;
+            maxHealth = Mathf.Max(health, maxHealth);
+
+            if (health <= 0)
+            {
+                gameManager.PlayerDeath();
+            }
+        }
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }
