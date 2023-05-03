@@ -7,7 +7,6 @@ public class MovingPlatform : MonoBehaviour
     public Transform posA;
     public Transform posB;
     public int speed;
-    public bool onPlatform;
     private Vector2 targetPos;
     private Rigidbody2D rb;
 
@@ -30,25 +29,5 @@ public class MovingPlatform : MonoBehaviour
         }
 
         rb.velocity = (targetPos - rb.position).normalized * speed * Time.fixedDeltaTime;
-    }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Transform collider = collision.transform;
-        if (collider.CompareTag("Player")){
-
-            //collider.GetComponent<Rigidbody2D>().sharedMaterial.friction += 10;
-            onPlatform = true;
-        }
-    }
-
-     private void OnCollisionExit2D(Collision2D collision)
-    {
-        Transform collider = collision.transform;
-        if (collider.CompareTag("Player"))
-        {
-            //collider.GetComponent<Rigidbody2D>().sharedMaterial.friction -= 10;
-            onPlatform = false;
-        }
     }
 }
