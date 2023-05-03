@@ -6,18 +6,20 @@ public class MovingPlatform : MonoBehaviour
 {
     public Transform posA;
     public Transform posB;
-    public int Speed;
+    public int speed;
     public bool onPlatform;
-    Vector2 targetPos;
+    private Vector2 targetPos;
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         targetPos = posB.position;
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Vector2.Distance(transform.position, posA.position)< .1f){
             targetPos = posB.position;
@@ -27,21 +29,25 @@ public class MovingPlatform : MonoBehaviour
             targetPos = posA.position;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
+        rb.velocity = (targetPos - rb.position).normalized * speed * Time.fixedDeltaTime;
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player")){
-            collision.transform.SetParent(this.transform);
+        Transform collider = collision.transform;
+        if (collider.CompareTag("Player")){
+
+            //collider.GetComponent<Rigidbody2D>().sharedMaterial.friction += 10;
             onPlatform = true;
         }
     }
 
-     private void OnTriggerExit2D(Collider2D collision)
+     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player")){
-            collision.transform.SetParent(null);
+        Transform collider = collision.transform;
+        if (collider.CompareTag("Player"))
+        {
+            //collider.GetComponent<Rigidbody2D>().sharedMaterial.friction -= 10;
             onPlatform = false;
         }
     }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-
-    private float fallDelay = 0.5f;
+    public float fallDelay = 0.5f;
     private float destroyDelay = 2f;
 
     [SerializeField] private Rigidbody2D rb;
