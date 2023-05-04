@@ -9,6 +9,8 @@ TagManager:
   - GroundSpawner
   - PausedScreen
   - Enemy
+  - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX
