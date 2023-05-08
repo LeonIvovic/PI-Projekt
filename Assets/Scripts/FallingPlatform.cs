@@ -6,9 +6,13 @@ public class FallingPlatform : MonoBehaviour
 {
     public float fallDelay = 0.5f;
     private float destroyDelay = 2f;
+    private Rigidbody2D rb;
 
-    [SerializeField] private Rigidbody2D rb;
-    
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Player")){
             StartCoroutine(Fall());

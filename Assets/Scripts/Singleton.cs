@@ -9,6 +9,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (instance == null)
         {
             instance = exists;
+            DontDestroyOnLoad(instance);
         }
         else if (instance != exists)
         {
