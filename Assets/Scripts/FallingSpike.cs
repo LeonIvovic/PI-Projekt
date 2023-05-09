@@ -33,9 +33,9 @@ public class FallingSpike : MonoBehaviour
     //pomicanje zrake detekcije (trenutno -10f u odnosu na spike)
     Vector2 raycastOrigin = new Vector2(transform.position.x - 10f, transform.position.y);
 
-    playerHit = Physics2D.Raycast(raycastOrigin, Vector2.down, 100f, playerLayer);
+    playerHit = Physics2D.Raycast(raycastOrigin, Vector2.down, 10f, playerLayer);
 
-    Debug.DrawRay(raycastOrigin, Vector2.down * 100f, Color.red);
+    Debug.DrawRay(raycastOrigin, Vector2.down * 10f, Color.red);
 
     if (playerHit && playerHit.collider.CompareTag("Player")) {
         playerDetected = true;
