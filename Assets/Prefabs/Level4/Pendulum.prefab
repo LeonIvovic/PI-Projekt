@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2408005310000110279}
   - component: {fileID: 2408005310000110278}
   - component: {fileID: 2408005310000110272}
+  - component: {fileID: 453033738}
   m_Layer: 0
   m_Name: Kugla
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5660378, g: 0.32306874, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,6 +117,18 @@ PolygonCollider2D:
       - {x: 0.25, y: -0.43359375}
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
+--- !u!122 &453033738
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408005310000110277}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4291743487
+  m_Size: 3
 --- !u!1 &2408005310133925316
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +176,7 @@ GameObject:
   - component: {fileID: 2408005310467731727}
   - component: {fileID: 2408005310467731721}
   - component: {fileID: 2408005310467731722}
+  - component: {fileID: 2137117895}
   m_Layer: 0
   m_Name: "\u0160tap"
   m_TagString: Untagged
@@ -325,6 +339,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2137117895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408005310467731724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b109f7e6948a4ca4a8a7ac62584f3d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &2408005310751776240
 GameObject:
   m_ObjectHideFlags: 0
