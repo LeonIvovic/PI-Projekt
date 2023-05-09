@@ -69,6 +69,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void LoadCheckpoint(int currentHp, int maxHp)
+    {
+        health = currentHp;
+        maxHealth = maxHp;
+    }
+
     public int GetMaxHealth()
     {
         return maxHealth;

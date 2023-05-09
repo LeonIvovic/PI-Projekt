@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private PlayerController player;
+    private PlayerController player;
     [SerializeField] private RectTransform totalhealthBar;
     [SerializeField] private RectTransform currenthealthBar;
     // How much health each health image represeents
@@ -14,6 +14,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         img = totalhealthBar.GetComponent<Image>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Update()

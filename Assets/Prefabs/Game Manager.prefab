@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausedScreenPrefab: {fileID: 2909563101088104076, guid: 3c766e9e0c345494d86c008ae2ca334c, type: 3}
+  healthBarPrefab: {fileID: 8553889378319916310, guid: ebd0938b4787d904ea48eceeaf7a0097, type: 3}
