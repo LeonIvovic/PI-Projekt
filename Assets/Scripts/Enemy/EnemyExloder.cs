@@ -6,19 +6,17 @@ public class EnemyExloder : MonoBehaviour
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
     [SerializeField] private BoxCollider2D boxCollider;
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
     [Header("Parent")]
     [SerializeField] private Transform odparents;
 
     private float cooldownTimer = Mathf.Infinity;
     //reference
     private Animator anim;
-    private Health playerHealth;
+    private PlayerController player;
     private EnemyPatrol enemyPatrol;
 
     private void Awake()
@@ -56,14 +54,17 @@ public class EnemyExloder : MonoBehaviour
 
     private bool PlayerInSight()
     {
-        Debug.Log(odparents.localScale.x);
+        //Debug.Log(odparents.localScale.x);
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * odparents.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z
-           ), 0, Vector2.left, 0, playerLayer);
+           ), 0, Vector2.left, 0);
 
-        if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
+        if (hit.transform != null && hit.transform.CompareTag("Player"))
+        {
+            player = hit.transform.GetComponent<PlayerController>();
+            return true;
+        }
 
-        return hit.collider != null;
+        return false;
     }
     private void OnDrawGizmos()
     {
@@ -76,7 +77,7 @@ public class EnemyExloder : MonoBehaviour
     {
         if (PlayerInSight())
         {
-            playerHealth.TakeDamage(damage);
+            player.TakeDamage(damage);
         }
 
     }

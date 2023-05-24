@@ -70,7 +70,7 @@ public class GroundSpawner : MonoBehaviour
     //funkcija koja provjerava dali se objekt sudario sa objektnom
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             hasGround = true;
         }
@@ -83,7 +83,7 @@ public class GroundSpawner : MonoBehaviour
     //funkcija koja provjerava dali se objekt maknuo sa objekta na kojemu je bio
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             hasGround = false;
         }

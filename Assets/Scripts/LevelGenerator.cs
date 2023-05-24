@@ -139,7 +139,7 @@ public class LevelGenerator : MonoBehaviour
         Instantiate
         (
             endPlatform,
-            new Vector2(bottomLeft.position.x + maxLevelLength + padding + endPlatform.transform.localScale.x / 2, previousElementHeight),
+            new Vector2(bottomLeft.position.x + maxLevelLength + padding + endPlatform.transform.localScale.x / 2, previousElementHeight - 5),
             Quaternion.identity,
             this.transform
         );
