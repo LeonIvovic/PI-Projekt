@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Boundary
-  - Platform
   - PlatformDetecter
   - GroundSpawner
   - PausedScreen
   - Enemy
+  - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - FallingSpike
+  - Player
   - 
   - 
   - 
@@ -45,6 +45,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Obstacle
+    uniqueID: 903756669
+    locked: 0
+  - name: Ground
+    uniqueID: 3882332649
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2863396603
     locked: 0

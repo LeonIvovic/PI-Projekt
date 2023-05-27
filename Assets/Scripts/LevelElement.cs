@@ -48,7 +48,7 @@ public class LevelElement : MonoBehaviour
                 Instantiate
                 (
                     objectOnTop,
-                    new Vector2(position.x - length / 2 + offset / 2 + i * offset, position.y + transform.localScale.y / 2),
+                    new Vector2(position.x - length / 2 + offset / 2 + i * offset, position.y - 0.22f + transform.localScale.y / 2 + objectOnTop.transform.localScale.y / 2),
                     Quaternion.identity,
                     parent
                  );

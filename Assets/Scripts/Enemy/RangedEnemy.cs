@@ -11,8 +11,6 @@ public class RangedEnemy : MonoBehaviour
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
     [SerializeField] private BoxCollider2D boxCollider;
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
 
     [Header("Ranged Attack")]
@@ -61,10 +59,10 @@ public class RangedEnemy : MonoBehaviour
 
     private bool PlayerInSight()
     {
-        Debug.Log(odparents.localScale.x);
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * odparents.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z
-           ), 0, Vector2.left, 0, playerLayer);
-        return hit.collider != null;
+           ), 0, Vector2.left, 0);
+
+        return hit.transform != null && hit.transform.CompareTag("Player");
     }
     private void OnDrawGizmos()
     {

@@ -9,7 +9,6 @@ public class PlayerLeftSideBoundaries : MonoBehaviour
 {
     if (collision.gameObject.CompareTag("Boundary"))
     {
-        Debug.Log(5);
         float boundaryRight = collision.gameObject.GetComponent<Collider2D>().bounds.max.x;
         float offset = 0.1f; // adjust this value to prevent player from getting stuck
 
