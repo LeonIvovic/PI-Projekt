@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6238310992476499598, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
 --- !u!1001 &1407550281
@@ -1189,6 +1193,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2015611052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6238310992476499598, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
+  m_PrefabInstance: {fileID: 1351413516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015611055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015611052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3964b7c8586324b42af4a43015188694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPlace: {r: 0, g: 0, b: 0, a: 0}
+  secondPlace: {r: 0, g: 0, b: 0, a: 0}
+  thirdPlace: {r: 0, g: 0, b: 0, a: 0}
+  scorePrefab: {fileID: 0}
+  boardContent: {fileID: 0}
+  currentPlayerScore: {fileID: 0}
 --- !u!1001 &869623102757953011
 PrefabInstance:
   m_ObjectHideFlags: 0

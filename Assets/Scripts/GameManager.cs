@@ -4,57 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameObject pausedScreenPrefab;
+    // Prefabs
     [SerializeField] private GameObject healthBarPrefab;
-    private GameObject pausedScreen;
-    public bool isPaused { get; private set; }
-    private Vector2 checkpoint;
-    private int checkPointHp;
-    private int checkPointMaxHp;
+    [SerializeField] private GameObject pausedScreenPrefab;
+    [SerializeField] private GameObject scoreDisplayPrefab;
 
+    private DataHolder data;
+
+    // Instances
+    private GameObject healthBar;
+    private GameObject pausedScreen;
+    private TMPro.TMP_Text scoreDisplay;
+
+    // Paused check
+    public bool isPaused { get; private set; }
+
+    // Checkpoint location
+    private Vector2 checkpoint;
 
     private void Awake()
     {
-        if (GetInstance() != this) Destroy(this);
+        // Additional check just in case
+        if (GetInstance() != this) Destroy(this.gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
         CheckAndAddPauseScreen();
+
+        data = ScriptableObject.CreateInstance<DataHolder>();
+        data.scores = new int[SceneManager.sceneCountInBuildSettings];
     }
 
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // If checkpoint is active, move player to it's position and set it's health to the time of activation
-        if (checkpoint.magnitude != 0)
-        {
-            PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.transform.position = checkpoint + new Vector2(0, 3);
-                player.LoadCheckpoint(checkPointHp, checkPointMaxHp);
-            }
-        }
-
-        Instantiate(healthBarPrefab);
-    }
-
-
-    private void CheckAndAddPauseScreen()
-    {
-        pausedScreen = GameObject.FindGameObjectWithTag("PausedScreen");
-        if (pausedScreen == null)
-        {
-            pausedScreen = Instantiate(pausedScreenPrefab, transform);
-        }
-
-        Unpause();
     }
 
     private void Update()
@@ -71,6 +58,41 @@ public class GameManager : Singleton<GameManager>
                 Pause();
             }
         }
+
+        // Display score and increase it over time
+        data.currentLevelScore += (Time.deltaTime * data.scorePerSecond);
+        scoreDisplay.text = data.currentLevelScore.ToString("0"); // "0" - Don't show decimals
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Load players health from checkpoint or last level
+        // If checkpoint was active move the player to its position
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (player != null)
+        {
+            if (checkpoint.magnitude != 0)
+            {
+                player.transform.position = checkpoint + new Vector2(0, 3);
+            }
+            player.LoadSaved(data.savedHp, data.savedMaxHp);
+        }
+
+        if (healthBar == null) healthBar = Instantiate(healthBarPrefab, transform);
+        if (scoreDisplay == null) scoreDisplay = Instantiate(scoreDisplayPrefab, transform).GetComponentInChildren<TMPro.TMP_Text>();
+
+    }
+
+
+    private void CheckAndAddPauseScreen()
+    {
+        pausedScreen = GameObject.FindGameObjectWithTag("PausedScreen");
+        if (pausedScreen == null)
+        {
+            pausedScreen = Instantiate(pausedScreenPrefab, transform);
+        }
+
+        Unpause();
     }
     
     public void DisableCheckpoint()
@@ -86,21 +108,50 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadNextLevel()
     {
-        // Loads next scene from build order
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Save current health and max health so we can load them in next level
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (player != null)
+        {
+            data.savedHp = player.GetHealth();
+            data.savedMaxHp = player.GetMaxHealth();
+        }
+
+        // Disable checkpoint or the player will be moved to previous level's checkpoint position
+        DisableCheckpoint();
+
+        // Save score for current level and reset the coutner for the next one
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        data.scores[currentLevelIndex] = (int)data.currentLevelScore;
+        data.currentLevelScore = 0;
+
+        // If next scene is a level - load next scene from build
+        string nextScene = SceneUtility.GetScenePathByBuildIndex(currentLevelIndex + 1);
+        if (nextScene != null && nextScene.Contains("Level"))
+        {
+            SceneManager.LoadScene(currentLevelIndex + 1);
+        }
+        // Else if this was the Last level - upload score and show leaderboard
+        else
+        {
+            Destroy(this.gameObject);
+            ScoreManager.UploadScore(data.scores.Sum());
+            SceneManager.LoadScene("Leaderboard");
+        }
     }
 
     public void PlayerDeath()
     {
-        // TODO expand later
+        // Score increase on death
+        data.currentLevelScore += data.scorePerDeath;
+
         RestartLevel();
     }
 
     public void SetCheckPoint(Vector2 checkpoint, int hp, int maxHp)
     {
         this.checkpoint = checkpoint;
-        checkPointHp = hp;
-        checkPointMaxHp = maxHp;
+        data.savedHp = hp;
+        data.savedMaxHp = maxHp;
     }
 
     public void Pause()
