@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7571441003877636660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 0.8, z: 0}
+  m_LocalScale: {x: 8, y: 0.8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,4 +127,4 @@ MonoBehaviour:
   element: {fileID: 7571441003877636660}
   objectOnTop: {fileID: 5574899030157781935, guid: fe13945c04a475f4ba89a47c1c77b469, type: 3}
   minObjectsOnTop: 1
-  maxObjectsOnTop: 3
+  maxObjectsOnTop: 2
