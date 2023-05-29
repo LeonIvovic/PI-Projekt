@@ -33,6 +33,8 @@ jobs:
       with:
         githubToken: ${{ secrets.GITHUB_TOKEN }}
   - build:
+      name: Run tests
+      runs-on: ubuntu-latest
       steps:
         - name: Build project
           uses: game-ci/unity-builder@v2
@@ -44,7 +46,8 @@ jobs:
             targetPlatform: StandaloneWindows
 
         # Output
-        - uses: actions/upload-artifact@v2
+        - name: Upload artifact
+          uses: actions/upload-artifact@v2
           with:
             name: Build
             path: build
