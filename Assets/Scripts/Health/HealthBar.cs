@@ -14,11 +14,16 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         img = totalhealthBar.GetComponent<Image>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            return;
+        }
+
         totalhealthBar.sizeDelta = new Vector2
             (
                 img.sprite.bounds.size.x * img.sprite.pixelsPerUnit * player.GetMaxHealth() / healthPerImg,

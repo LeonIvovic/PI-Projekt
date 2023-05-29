@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba151be38a962c4da5a57560ee76a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausedScreenPrefab: {fileID: 2909563101088104076, guid: 3c766e9e0c345494d86c008ae2ca334c, type: 3}
   healthBarPrefab: {fileID: 8553889378319916310, guid: ebd0938b4787d904ea48eceeaf7a0097, type: 3}
+  pausedScreenPrefab: {fileID: 2909563101088104076, guid: 3c766e9e0c345494d86c008ae2ca334c, type: 3}
+  scoreDisplayPrefab: {fileID: 8553889378319916310, guid: d937fcb398f96074fba91c7ad63dc02a, type: 3}
+  data: {fileID: 11400000, guid: 92ef6fbf18abbac4ca59272e8fe1e634, type: 2}

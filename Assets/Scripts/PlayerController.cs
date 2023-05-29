@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void LoadCheckpoint(int currentHp, int maxHp)
+    public void LoadSaved(int currentHp, int maxHp)
     {
         health = currentHp;
         maxHealth = maxHp;
