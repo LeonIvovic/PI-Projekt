@@ -6,8 +6,8 @@ on:
       - main
       
 jobs:
-  build:
-    name: Build and release
+  prepare:
+    name: Checkout and cache
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -23,16 +23,17 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
-
-      # Test
-      #- name: Run tests
-      #  uses: game-ci/unity-test-runner@v2
-      #  env:
-      #    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      #  with:
-      #    githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      # Build
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    # Test
+    uses: game-ci/unity-test-runner@v2
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+    with:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    steps:
       - name: Build project
         uses: game-ci/unity-builder@v2
         env:
@@ -47,16 +48,15 @@ jobs:
         with:
           name: Build
           path: build
-          
-        ##
-      - name: Create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Auto generated release
-          draft: true
-          prerelease: false
+        
+      ##
+    - name: Create release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Latest Build"
+        files: |
+          LICENSE.txt
+          *.jar
