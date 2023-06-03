@@ -39,7 +39,7 @@ public class EnemyProjectile : EnemyDamage
             gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
         hit = true;
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first

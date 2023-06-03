@@ -15,6 +15,11 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void Leaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     public void Quit()
     {
         Application.Quit();
