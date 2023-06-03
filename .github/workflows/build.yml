@@ -48,7 +48,7 @@ jobs:
 
       - uses: game-ci/unity-builder@v2
         with:
-          targetPlatform: WindowsStandalone
+          targetPlatform: StandaloneWindows
 
       - uses: actions/upload-artifact@v2
         with:
