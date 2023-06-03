@@ -123,7 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-
 --- !u!1001 &41543238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,10 +1630,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 6238310992476499598, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
 --- !u!1001 &1407550281
@@ -2231,7 +2226,6 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4c462f241afd01498cfd880cefc675d, type: 3}
 --- !u!1 &2014623359
-
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2320,29 +2314,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2015611052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6238310992476499598, guid: 40b8be0ab680209458c439cb8168fcc2, type: 3}
-  m_PrefabInstance: {fileID: 1351413516}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2015611055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015611052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3964b7c8586324b42af4a43015188694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstPlace: {r: 0, g: 0, b: 0, a: 0}
-  secondPlace: {r: 0, g: 0, b: 0, a: 0}
-  thirdPlace: {r: 0, g: 0, b: 0, a: 0}
-  scorePrefab: {fileID: 0}
-  boardContent: {fileID: 0}
-  currentPlayerScore: {fileID: 0}
 --- !u!4 &2119015592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9117943029272291848, guid: a4c462f241afd01498cfd880cefc675d, type: 3}
@@ -2541,6 +2512,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 46486950876923109, guid: 6298283b85c387f46bc317e4f7cd49b2, type: 3}
       propertyPath: m_Name
       value: Checkpoint
@@ -2568,18 +2551,6 @@ PrefabInstance:
     - target: {fileID: 834649414701915020, guid: 6298283b85c387f46bc317e4f7cd49b2, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434552552372214437, guid: 3d855290a8782484283f952db4faa37a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 834649414701915020, guid: 6298283b85c387f46bc317e4f7cd49b2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2677,7 +2648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3878022002914905481, guid: 6c98aced6b2b4844faa4b48b320e750d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3878022002914905487, guid: 6c98aced6b2b4844faa4b48b320e750d, type: 3}
       propertyPath: m_RootOrder
