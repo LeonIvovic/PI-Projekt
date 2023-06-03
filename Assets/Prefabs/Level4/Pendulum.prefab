@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.5660378, g: 0.32306874, b: 0.5660378, a: 1}
+  m_Color: {r: 0.9019608, g: 0.3137255, b: 0.3137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,7 +128,7 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 4291743487
-  m_Size: 3
+  m_Size: 1
 --- !u!1 &2408005310133925316
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   leftPushRange: -0.25
   rightPushRange: 0.25
   velocityThreshold: 140
+  pocetniSmjer: 0
 --- !u!61 &2408005310467731722
 BoxCollider2D:
   m_ObjectHideFlags: 0

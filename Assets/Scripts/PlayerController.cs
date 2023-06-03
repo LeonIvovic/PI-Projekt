@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (t.position.y < -10)
+        if (t.position.y < -8)
         {
             gameManager.PlayerDeath();
         }
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void LoadCheckpoint(int currentHp, int maxHp)
+    public void LoadSaved(int currentHp, int maxHp)
     {
         health = currentHp;
         maxHealth = maxHp;

@@ -16,12 +16,16 @@ public class MovingObstacle : MonoBehaviour
     public float waitDuration;
     int speedMultiplier = 1;
     
-    private void Awake(){
+    private void Awake()
+    {
+        if (wayPoints == null)
+        {
+            wayPoints = new Transform[ways.transform.childCount];
 
-        wayPoints = new Transform[ways.transform.childCount];
-
-        for(int i = 0; i < ways.gameObject.transform.childCount;i++){
-            wayPoints[i] = ways.transform.GetChild(i).gameObject.transform;
+            for (int i = 0; i < ways.gameObject.transform.childCount; i++)
+            {
+                wayPoints[i] = ways.transform.GetChild(i).gameObject.transform;
+            }
         }
     }
 
