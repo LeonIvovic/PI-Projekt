@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     private const string leaderboardId = "ProjectOR";
 
-    private async void Start()
+    private async void Awake()
     {
         if (UnityServices.State == ServicesInitializationState.Uninitialized)
         {
