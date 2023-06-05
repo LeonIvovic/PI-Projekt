@@ -6,7 +6,7 @@
 
 ## Platformer
 
-Igrica se trenutno sastoji od 4 levela (2 kompletirana, 2 u izradi) te je glavni cilj igrice prijeći level i preživjeti.
+Igrica se trenutno sastoji od 4 levela te je glavni cilj igrice prijeći level,preživjeti i pritom skupiti što je manje moguće bodova.
 Leveli se sastoje od parkour-a, prepreka te neprijatelja.
 
 ## Kontrole 
@@ -15,7 +15,11 @@ Za pomicanje igrača koriste se gumbi `<--` ili `A` za u lijevu stranu te `-->` 
 Za skok se koriste `Space`,`C` ili `J`.
 Ukoliko je potrebno zaustaviti igru koriste se `ESC` ili `P`
 
-## Kako otvoriti projekt?
+## Gdje igrati igricu?
+
+Igrica je dostupna na web stranici **[ProjectOR](https://leonivovic.github.io/PI-Projekt/)**.
+
+## Kako otvoriti projekt uz instalaciju?
 
 1. Instalirati [Unity](https://unity.com/). Za izradu projekta korištena je najnovija dostupna LTS verzija **Unity-a 2021.3 LTS**, ali vjerojatno će raditi i nešto novije i starije verzije.
 
@@ -32,3 +36,4 @@ Ovako izgleda početna stranica UnityHub-a.
 
 <img src="https://user-images.githubusercontent.com/119117651/232502081-a594a1a6-2837-4f14-8e8c-81eeceabea6f.png" width="75%">
 <br>
+
