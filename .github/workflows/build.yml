@@ -31,7 +31,9 @@ jobs:
         with:
           unityVersion: 2022.3.0f1
           targetPlatform: StandaloneWindows
-
+          buildsPath: build/Windows
+          buildName: build-Windows
+          
       - uses: actions/upload-artifact@v2
         with:
           name: build-Windows
@@ -63,6 +65,8 @@ jobs:
         with:
           unityVersion: 2022.3.0f1
           targetPlatform: WebGL
+          buildsPath: build/WebGL
+          buildName: build-WebGL
 
       - uses: actions/upload-artifact@v2
         with:
