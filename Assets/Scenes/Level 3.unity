@@ -444,6 +444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280719dd48da26f49a3b53908fefcd74, type: 3}
+--- !u!1 &716628321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2011379590425458291, guid: bf34c5d9e39225546b5ad395c2e486d6, type: 3}
+  m_PrefabInstance: {fileID: 489361116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100007733
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,8 +603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba151be38a962c4da5a57560ee76a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausedScreenPrefab: {fileID: 2909563101088104076, guid: 3c766e9e0c345494d86c008ae2ca334c, type: 3}
   healthBarPrefab: {fileID: 0}
+  pausedScreenPrefab: {fileID: 2909563101088104076, guid: 3c766e9e0c345494d86c008ae2ca334c, type: 3}
+  scoreDisplayPrefab: {fileID: 0}
 --- !u!4 &1331744535
 Transform:
   m_ObjectHideFlags: 0
@@ -802,6 +808,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2011379590425458288, guid: bf34c5d9e39225546b5ad395c2e486d6, type: 3}
   m_PrefabInstance: {fileID: 489361116}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1863306009
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716628321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c13ad04fff35b64d8fd039805f70d95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1394779568705877465
 PrefabInstance:
   m_ObjectHideFlags: 0
