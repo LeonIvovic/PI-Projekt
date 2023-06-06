@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Transform t;
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
+    public AudioSource AudioSource2;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if (dmg > 0)
         {
             health -= dmg;
-
+            AudioSource2.Play();
             if (health <= 0)
             {
                 gameManager.PlayerDeath();

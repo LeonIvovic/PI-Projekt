@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+    public AudioSource AudioSource1;
     private Rigidbody2D lastGround;
 
     private void Awake()
@@ -93,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             isJumpCut = true;
             isJumpFalling = false;
             Jump();
+            AudioSource1.Play();
         }
 
         if (rb.velocity.y < 0 && moveInput.y < 0)
