@@ -4,21 +4,24 @@ public class EnemyProjectile : EnemyDamage
 {
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
-
+    
     private float lifetime;
     private Animator anim;
     private BoxCollider2D coll;
-
+    private Transform transformi; 
     private bool hit;
 
     private void Awake()
     {
+       
         anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
+        transformi = GetComponent<Transform>();
     }
 
     public void ActivateProjectile()
     {
+        
         hit = false;
         lifetime = 0;
         gameObject.SetActive(true);
@@ -27,7 +30,8 @@ public class EnemyProjectile : EnemyDamage
     private void Update()
     {
         if (hit) return;
-        float movementSpeed = speed * Time.deltaTime;
+        float movementSpeed = speed * Time.deltaTime * (-1);
+   
         transform.Translate(movementSpeed, 0, 0);
 
         lifetime += Time.deltaTime;
