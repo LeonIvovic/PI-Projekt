@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground check")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private float groundCheckRadius = 0.4f;
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D lastGround;
 
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         {
             OnJumpUpInput();
         }
-
+        lastGround = null;
         if (!isJumping)
         {
             // Ground Check
@@ -65,14 +65,6 @@ public class PlayerMovement : MonoBehaviour
                 lastOnGroundTime = Data.coyoteTime;
                 lastGround = result.GetComponent<Rigidbody2D>();
             }
-            else
-            {
-                lastGround = null;
-            }
-        }
-        else
-        {
-            lastGround = null;
         }
 
         if (isJumping && rb.velocity.y < 0)
