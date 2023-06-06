@@ -25,7 +25,6 @@ public class Rotate : MonoBehaviour
         transform.Rotate(0, 0, 360 * speed * Time.deltaTime);
         if (collider1.bounds.Intersects(collider2.bounds))
         {
-            Debug.Log("Collided!");
             GameObject playerObject = GameObject.FindWithTag("Player");
             PlayerController playerController = playerObject.GetComponent<PlayerController>();
 

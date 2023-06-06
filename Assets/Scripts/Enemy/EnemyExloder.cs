@@ -39,17 +39,13 @@ public class EnemyExloder : MonoBehaviour
             {
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeatck");
-
             }
-
         }
 
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSight();
         }
-
-
     }
 
     private bool PlayerInSight()
@@ -57,12 +53,8 @@ public class EnemyExloder : MonoBehaviour
         //Debug.Log(odparents.localScale.x);
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * odparents.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z
            ), 0, Vector2.left, 0);
-        if(hit.transform != null){
-            Debug.Log("esese");
-        }
         if (hit.transform != null && hit.transform.CompareTag("Player"))
         {
-            
             player = hit.transform.GetComponent<PlayerController>();
             return true;
         }
@@ -84,6 +76,4 @@ public class EnemyExloder : MonoBehaviour
         }
 
     }
-
-
 }
