@@ -85,7 +85,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-WebGL
-          path: build
+          path: build/WebGL
 
       - name: Display structure of root files
         run: ls -R
