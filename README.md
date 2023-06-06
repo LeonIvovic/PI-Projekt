@@ -1,5 +1,5 @@
 # PI-Projekt
-
+[![Unity project build](https://github.com/LeonIvovic/PI-Projekt/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/LeonIvovic/PI-Projekt/actions/workflows/build.yml)
 ## Game engine
 <img src="https://user-images.githubusercontent.com/104684302/233043795-923857d2-7729-4b93-9974-9b786320ebe1.png#gh-light-mode-only" width="271" height="100">
 <img src="https://user-images.githubusercontent.com/104684302/233044857-b9d6153d-921e-4418-98c2-342125155f4f.png#gh-dark-mode-only" width="271" height="100">
