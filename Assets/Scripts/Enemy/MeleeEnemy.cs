@@ -35,8 +35,10 @@ public class MeleeEnemy : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (PlayerInSight())
         {
+            
             if (cooldownTimer >= attackCooldown)
             {
+                print("true");
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeatck");
                 
@@ -56,7 +58,11 @@ public class MeleeEnemy : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * odparents.localScale.x *colliderDistance,new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z
            ) ,0,Vector2.left, 0);
-
+        if (hit.transform!= null)
+        {
+           
+        }
+        
         if (hit.transform != null && hit.transform.CompareTag("Player"))
         {
             player = hit.transform.GetComponent<PlayerController>();
