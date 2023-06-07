@@ -2,9 +2,8 @@ name: Unity project workflow
 
 on: 
   push:
-    branches:
-      - main
-      
+    tags:
+      - build
 jobs:
   buildWindows:
     name: Build for Windows
