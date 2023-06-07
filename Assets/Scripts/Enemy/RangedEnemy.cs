@@ -39,6 +39,7 @@ public class RangedEnemy : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (PlayerInSight())
         {
+            
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
@@ -61,7 +62,6 @@ public class RangedEnemy : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * odparents.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z
            ), 0, Vector2.left, 0);
-
         return hit.transform != null && hit.transform.CompareTag("Player");
     }
     private void OnDrawGizmos()

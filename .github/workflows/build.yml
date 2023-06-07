@@ -31,7 +31,9 @@ jobs:
         with:
           unityVersion: 2022.3.0f1
           targetPlatform: StandaloneWindows
-
+          buildsPath: build/Windows
+          buildName: build-Windows
+          
       - uses: actions/upload-artifact@v2
         with:
           name: build-Windows
@@ -88,7 +90,7 @@ jobs:
         working-directory: build/WebGL
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.4.2
+        uses: JamesIves/github-pages-deploy-action@v4.4.2
         with:
           branch: gh-pages
           folder: build/WebGL

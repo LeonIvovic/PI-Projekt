@@ -1,7 +1,5 @@
 using Unity.Services.Leaderboards;
 using UnityEngine;
-using Unity.Services.Core;
-using Unity.Services.Authentication;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -15,44 +13,15 @@ public class ScoreManager : MonoBehaviour
 
     private const string leaderboardId = "ProjectOR";
 
-    private async void Awake()
+    private void Awake()
     {
-        if (UnityServices.State == ServicesInitializationState.Uninitialized)
-        {
-            await UnityServices.InitializeAsync();
-        }
-
-        try
-        {
-            if (!AuthenticationService.Instance.IsSignedIn)
-            {
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            }
-        }
-        catch (AuthenticationException e)
-        {
-            Debug.LogWarning(e);
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        }
-
         ShowLeaderboard();
     }
 
     public static async void UploadScore(int score)
     {
-        if (UnityServices.State == ServicesInitializationState.Uninitialized)
-        {
-            await UnityServices.InitializeAsync();
-        }
-
-        if (!AuthenticationService.Instance.IsSignedIn)
-        {
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        }
-
         await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, score);
     }
-
 
     private async void ShowLeaderboard()
     {
