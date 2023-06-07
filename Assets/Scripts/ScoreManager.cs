@@ -1,3 +1,4 @@
+using System;
 using Unity.Services.Leaderboards;
 using UnityEngine;
 
@@ -25,10 +26,6 @@ public class ScoreManager : MonoBehaviour
 
     private async void ShowLeaderboard()
     {
-        // Get player score
-        Unity.Services.Leaderboards.Models.LeaderboardEntry playerScore = await LeaderboardsService.Instance
-            .GetPlayerScoreAsync(leaderboardId);
-
         // Get all scores
         Unity.Services.Leaderboards.Models.LeaderboardScoresPage scores = await LeaderboardsService.Instance
             .GetScoresAsync(leaderboardId);
@@ -64,11 +61,23 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        scoreTexts = currentPlayerScore.GetComponentsInChildren<TMPro.TMP_Text>();
-        if (playerScore != null)
+        try
         {
-            scoreTexts[0].text = playerScore.Rank + 1 + ".  " + playerScore.PlayerName;
-            scoreTexts[1].text = playerScore.Score.ToString();
+            // Get player score
+            Unity.Services.Leaderboards.Models.LeaderboardEntry playerScore = await LeaderboardsService.Instance
+                .GetPlayerScoreAsync(leaderboardId);
+
+            scoreTexts = currentPlayerScore.GetComponentsInChildren<TMPro.TMP_Text>();
+            if (playerScore != null)
+            {
+                scoreTexts[0].text = playerScore.Rank + 1 + ".  " + playerScore.PlayerName;
+                scoreTexts[1].text = playerScore.Score.ToString();
+            }
+        } catch (Exception e)
+        {
+            Debug.Log("Nema player sccora" +e);
         }
+
+
     }
 }
