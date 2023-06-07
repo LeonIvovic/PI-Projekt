@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             if (result)
             {
                 lastOnGroundTime = Data.coyoteTime;
-                lastGround = result.GetComponent<Rigidbody2D>();
+                //lastGround = result.GetComponent<Rigidbody2D>();
             }
         }
 
