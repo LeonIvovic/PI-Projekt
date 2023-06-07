@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2157864364840506741}
   - component: {fileID: 1417250189635142134}
   - component: {fileID: 5819494892187875797}
+  - component: {fileID: -2591212885737334371}
   - component: {fileID: -7955960088100232682}
   - component: {fileID: 6019109341514027303}
-  - component: {fileID: 8988046855811930432}
-  - component: {fileID: -2591212885737334371}
+  - component: {fileID: -8024352693128602536}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -101,6 +101,21 @@ Halo:
     serializedVersion: 2
     rgba: 4286611584
   m_Size: 0.4
+--- !u!114 &-2591212885737334371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637587245857244965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4e7b319cf7f934a88b9da8907ed7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  speed: 0
+  resetTime: 5
 --- !u!114 &-7955960088100232682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,10 +125,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3637587245857244965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7d4303eff169c07af4515380161304, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0b9bb5bbc606a4c85a76663c67cce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7
+  bulletSpeed: 4
 --- !u!61 &6019109341514027303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +139,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -140,7 +155,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &8988046855811930432
+--- !u!50 &-8024352693128602536
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -152,7 +167,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -161,18 +176,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2591212885737334371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3637587245857244965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4e7b319cf7f934a88b9da8907ed7ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 7
-  speed: 0
-  resetTime: 9

@@ -29,7 +29,10 @@ public class EnemyProjectile : EnemyDamage
     }
     private void Update()
     {
-        if (hit) return;
+        if (hit) 
+        {
+            return;
+        }
         float movementSpeed = speed * Time.deltaTime * (-1);
    
         transform.Translate(movementSpeed, 0, 0);
@@ -39,7 +42,7 @@ public class EnemyProjectile : EnemyDamage
             gameObject.SetActive(false);
     }
 
-    private new void OnTriggerEnter2D(Collider2D collision)
+   /* private new void OnTriggerEnter2D(Collider2D collision)
     {
         hit = true;
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first
@@ -49,7 +52,7 @@ public class EnemyProjectile : EnemyDamage
             anim.SetTrigger("explode"); //When the object is a fireball explode it
         else
             gameObject.SetActive(false); //When this hits any object deactivate arrow
-    }
+    }*/
     private void Deactivate()
     {
         gameObject.SetActive(false);
