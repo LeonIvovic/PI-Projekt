@@ -41,6 +41,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5527801785364442555}
     m_Modifications:
+    - target: {fileID: 1373041687139252807, guid: d93dd9175a95ce6409cc3d8d43c1cca8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.76862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373041687139252807, guid: d93dd9175a95ce6409cc3d8d43c1cca8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.87058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373041687139252807, guid: d93dd9175a95ce6409cc3d8d43c1cca8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8235294
+      objectReference: {fileID: 0}
     - target: {fileID: 4976568663737825578, guid: d93dd9175a95ce6409cc3d8d43c1cca8, type: 3}
       propertyPath: m_Name
       value: LastPlatformGround
