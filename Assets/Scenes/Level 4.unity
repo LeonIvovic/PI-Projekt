@@ -4231,15 +4231,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6092931704978306362, guid: a45217c7a3a14d9498614079af111d1e, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.76862746
       objectReference: {fileID: 0}
     - target: {fileID: 6092931704978306362, guid: a45217c7a3a14d9498614079af111d1e, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 6092931704978306362, guid: a45217c7a3a14d9498614079af111d1e, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.8235294
       objectReference: {fileID: 0}
     - target: {fileID: 6092931704978306363, guid: a45217c7a3a14d9498614079af111d1e, type: 3}
       propertyPath: m_RootOrder

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8235294, g: 0.87058824, b: 0.76862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,6 +122,18 @@ PrefabInstance:
     - target: {fileID: 6374832049475986376, guid: faa1c844fbba92d4b943bdf004825727, type: 3}
       propertyPath: m_Name
       value: LeftGameBoundary
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374832049475986377, guid: faa1c844fbba92d4b943bdf004825727, type: 3}
+      propertyPath: m_Color.b
+      value: 0.76557493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374832049475986377, guid: faa1c844fbba92d4b943bdf004825727, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374832049475986377, guid: faa1c844fbba92d4b943bdf004825727, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8198416
       objectReference: {fileID: 0}
     - target: {fileID: 6374832049475986378, guid: faa1c844fbba92d4b943bdf004825727, type: 3}
       propertyPath: m_RootOrder
