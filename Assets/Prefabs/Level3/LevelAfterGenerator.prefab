@@ -501,6 +501,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 5694828375649117472, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5694828375649117473, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
       propertyPath: speed
       value: 4
@@ -603,6 +607,10 @@ PrefabInstance:
     - target: {fileID: 5694828375295017659, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694828375649117472, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
+      propertyPath: damage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5694828375649117473, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
       propertyPath: speed
@@ -714,6 +722,10 @@ PrefabInstance:
     - target: {fileID: 5694828375295017660, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
       propertyPath: m_Name
       value: Point1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5694828375649117472, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
+      propertyPath: damage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5694828375649117473, guid: 2e97902f15c7c3c43b6289fb7d462b1f, type: 3}
       propertyPath: speed
