@@ -29,6 +29,7 @@ public class RangedEnemy : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        anim.SetBool("movement", false);
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
 
