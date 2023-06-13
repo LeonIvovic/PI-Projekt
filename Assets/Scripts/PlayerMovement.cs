@@ -24,10 +24,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D lastGround;
 
+    Animator anim;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         t = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -168,6 +171,20 @@ public class PlayerMovement : MonoBehaviour
             // Convert this to a vector and apply to rigidbody
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
+        if (rb.velocity.y < 0)
+        {
+            anim.SetBool("jump", false);
+        }
+
+
+        if (moveInput.x != 0)
+        {
+            anim.SetBool("move", true);
+        }
+        else
+        {
+            anim.SetBool("move", false);
+        }
     }
 
 
@@ -193,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        anim.SetBool("jump", true);
         // Ensures we can't call Jump multiple times from one press
         lastPressedJumpTime = 0;
         lastOnGroundTime = 0;
